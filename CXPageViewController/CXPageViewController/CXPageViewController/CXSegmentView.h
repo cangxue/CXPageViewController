@@ -25,7 +25,7 @@
 @property (nonatomic, strong) UIColor *bgColor;
 @property (nonatomic, strong) UIColor *normalColor;
 @property (nonatomic, strong) UIColor *selectedColor;
-@property (nonatomic, strong) UIColor *lineColor;
+@property (nonatomic, strong) UIColor *indicatorColor;
 
 // font size
 @property (nonatomic, assign) CGFloat fontSize;

@@ -30,7 +30,8 @@
         _bgColor = [UIColor whiteColor];
         _selectedColor = [UIColor darkTextColor];
         _normalColor = [UIColor colorWithRed:170/255.0 green:176/255.0 blue:187/255.0 alpha:1.0];
-        _fontSize = 12.0;
+        _fontSize = 13.0;
+        _indicatorColor = _selectedColor;
         
         [self.segmentView registerClass:[CXSegmentCell class] forCellWithReuseIdentifier:@"CXSegmentCellID"];
     }
@@ -47,6 +48,8 @@
     CXSegmentModel *model = [self.dataSources firstObject];
     
     self.line.frame = CGRectMake(4, CGRectGetHeight(self.frame) - 2, model.width, 2);
+    
+    [self setSelectedIndex:self.selectedIndex animation:NO];
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -96,6 +99,7 @@
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(0, 4, 0, 4);
 }
+
 #pragma mark - private
 // CXSegmentCell选中
 - (void)setSelectedIndex:(NSInteger)selectedIndex animation:(BOOL)animation {
@@ -169,22 +173,19 @@
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     _selectedIndex = selectedIndex;
+    
+    [self setSelectedIndex:selectedIndex animation:YES];
 }
 
 - (void)setBgColor:(UIColor *)bgColor {
     _bgColor = bgColor;
+    
+    self.segmentView.backgroundColor = bgColor;
 }
 
-- (void)setNormalColor:(UIColor *)normalColor {
-    _normalColor = normalColor;
-}
-
-- (void)setSelectedColor:(UIColor *)selectedColor {
-    _selectedColor = selectedColor;
-}
-
-- (void)setFontSize:(CGFloat)fontSize {
-    _fontSize = fontSize;
+- (void)setIndicatorColor:(UIColor *)indicatorColor {
+    _indicatorColor = indicatorColor;
+    self.line.backgroundColor = indicatorColor;
 }
 
 - (UICollectionView *)segmentView {
@@ -210,7 +211,7 @@
 - (UIView *)line {
     if (_line == nil) {
         _line = [[UIView alloc] init];
-        _line.backgroundColor = _selectedColor;
+        _line.backgroundColor = _indicatorColor;
         
         [self.segmentView addSubview:_line];
     }
@@ -278,7 +279,7 @@
 
 - (CGFloat)width {
     if (_width <= 0) {
-        CGFloat width = [self.title boundingRectWithSize:CGSizeMake(0, 30) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:self.fontSize]} context:nil].size.width;
+        CGFloat width = [self.title boundingRectWithSize:CGSizeMake(0, 40) options:NSStringDrawingUsesFontLeading|NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:self.fontSize]} context:nil].size.width;
         
         _width = width + 10;
     }

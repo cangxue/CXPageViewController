@@ -8,12 +8,12 @@
 
 #import "ViewController.h"
 
-#import "CXSegmentView.h"
+#import "CXSegmentViewController.h"
+
+#import "ContentViewController.h"
 
 
-@interface ViewController () <CXSegmentViewDelegate>
-
-@property (nonatomic, strong) CXSegmentView *segmentView;
+@interface ViewController ()
 
 @end
 
@@ -21,45 +21,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
     
     NSMutableArray *titles = [NSMutableArray arrayWithCapacity:0];
+    NSMutableArray *vcs = [NSMutableArray arrayWithCapacity:0];
     for (int i = 0; i < 10; i++) {
-
+        
+        ContentViewController *vc = [[ContentViewController alloc] init];
+        
+        [vcs addObject:vc];
+        
         NSString *str = [NSString stringWithFormat:@"第 %d 页", i+1];
-
+        vc.titleStr = str;
         [titles addObject:str];
     }
     
-    self.segmentView.titles = titles;
-}
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
+    CGRect frame = self.view.frame;
+    frame.origin.y += 20;
+    frame.size.height -= 20;
     
-    self.segmentView.frame = CGRectMake(0, 60, self.view.frame.size.width, 30);
-}
+    CXSegmentViewController *segmentVC = [[CXSegmentViewController alloc] init];
+    segmentVC.childViewControllers = vcs;
+    segmentVC.titles = titles;
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (CXSegmentView *)segmentView {
-    if (_segmentView == nil) {
-        _segmentView = [[CXSegmentView alloc] init];
-        _segmentView.delegate = self;
-        _segmentView.fontSize = 12;
-        
-        [self.view addSubview:_segmentView];
-    }
+    segmentVC.view.frame = frame;
     
-    return _segmentView;
+    segmentVC.bgColor = [UIColor colorWithRed:253/255.0 green:166/255.0 blue:57/255.0 alpha:1.0];
+    segmentVC.selectedColor = [UIColor redColor];
+    segmentVC.normalColor = [UIColor whiteColor];
+    segmentVC.indicatorColor = [UIColor redColor];
+    
+    segmentVC.selectedIndex = 4;
+    
+    [self addChildViewController:segmentVC];
+    [self.view addSubview:segmentVC.view];
 }
 
-- (void)segmentView:(CXSegmentView *)view didSelectedIndex:(NSInteger)index {
-    NSLog(@"index: %ld", (long)index);
-}
+
+
+
 
 @end

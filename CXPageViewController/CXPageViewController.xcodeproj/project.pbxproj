@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D16CE40E200DD55F00682701 /* CXSegmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D16CE40D200DD55F00682701 /* CXSegmentViewController.m */; };
+		D16CE411200DE3F300682701 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D16CE410200DE3F300682701 /* ContentViewController.m */; };
 		D184C03A200C535F001B5006 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D184C039200C535F001B5006 /* AppDelegate.m */; };
 		D184C03D200C535F001B5006 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D184C03C200C535F001B5006 /* ViewController.m */; };
 		D184C040200C535F001B5006 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D184C03E200C535F001B5006 /* Main.storyboard */; };
@@ -17,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D16CE40C200DD55F00682701 /* CXSegmentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXSegmentViewController.h; sourceTree = "<group>"; };
+		D16CE40D200DD55F00682701 /* CXSegmentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXSegmentViewController.m; sourceTree = "<group>"; };
+		D16CE40F200DE3F300682701 /* ContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		D16CE410200DE3F300682701 /* ContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		D184C035200C535F001B5006 /* CXPageViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CXPageViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D184C038200C535F001B5006 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D184C039200C535F001B5006 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -66,6 +72,8 @@
 				D184C039200C535F001B5006 /* AppDelegate.m */,
 				D184C03B200C535F001B5006 /* ViewController.h */,
 				D184C03C200C535F001B5006 /* ViewController.m */,
+				D16CE40F200DE3F300682701 /* ContentViewController.h */,
+				D16CE410200DE3F300682701 /* ContentViewController.m */,
 				D184C03E200C535F001B5006 /* Main.storyboard */,
 				D184C041200C535F001B5006 /* Assets.xcassets */,
 				D184C043200C535F001B5006 /* LaunchScreen.storyboard */,
@@ -80,6 +88,8 @@
 			children = (
 				D184C050200C8875001B5006 /* CXSegmentView.h */,
 				D184C051200C8875001B5006 /* CXSegmentView.m */,
+				D16CE40C200DD55F00682701 /* CXSegmentViewController.h */,
+				D16CE40D200DD55F00682701 /* CXSegmentViewController.m */,
 			);
 			path = CXPageViewController;
 			sourceTree = "<group>";
@@ -157,8 +167,10 @@
 			files = (
 				D184C03D200C535F001B5006 /* ViewController.m in Sources */,
 				D184C048200C535F001B5006 /* main.m in Sources */,
+				D16CE411200DE3F300682701 /* ContentViewController.m in Sources */,
 				D184C03A200C535F001B5006 /* AppDelegate.m in Sources */,
 				D184C052200C8875001B5006 /* CXSegmentView.m in Sources */,
+				D16CE40E200DD55F00682701 /* CXSegmentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
